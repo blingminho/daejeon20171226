@@ -39,7 +39,7 @@ public class OperationBasic02 {
 		 */
 		
 		/*
-		 * 3. 비트전환 연산자( ~ : 틸트 --> 1의 보수를 구함) -> 2진수
+		 * 3. 비트전환 연산자( ~ : 틸트 --> 해당수의 1의 보수를 구함) -> 2진수
 		 * - 정수형과 char형에만 사용할 수 있다.
 		 * - 피연산자를 2진수로 표현했을때 0 은 1로 1은 0 으로 바꾼다
 		 * 
@@ -123,7 +123,7 @@ public class OperationBasic02 {
 		System.out.println(10<<35);// 80	10*2^35 == 10*2^3	35 == 32 + 3 == 3 오버플로우!
 		
 		/*
-		 * 9. 비교연산자
+		 * 9. 비교연산자 - 대소비교, 등가비교
 		 * - 두개의 변수 또는 리터럴을 비교하는데 사용되는 연산자
 		 * - 주로 조건문과 반복문의 조건식에 사용되며
 		 * 	 연산결과는 true또는 false이다.
@@ -155,6 +155,7 @@ public class OperationBasic02 {
 		 * 		float	vs 	double
 		 * 값	정확		근사
 		 * 2^-n	둘이 같다
+		 * 결론, float을 쓰자!
 		 */
 		
 		/*
@@ -181,11 +182,13 @@ public class OperationBasic02 {
 		System.out.println('a'<=c && c<='z');
 		
 		//대문자 인지 판단
+		System.out.println('A'<=c && c<='B');
 		
 		//영문자 인지 판단
+		System.out.println(('a'<=c && c<='z') || ('A'<=c && c<='Z'));
 		
 		//숫자 인지 판단
-		
+		System.out.println('0'<=c && c<= '9');
 		
 		
 		
