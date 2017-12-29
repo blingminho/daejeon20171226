@@ -9,20 +9,23 @@ class Collatz {
 		int answer = 0;
 		int count = 0;
 		
-		while(num > 1) {
-			if(num % 2 == 0) {// 짝수인 경우
-				num /= 2;
+		while(count<500) {
+			if(num == 1) {
+				break;
 			}
-			else {// 홀수인 경우
+			if(num % 2 == 0) {// 짝수인 경우
+				num = num / 2;
+			}
+			else if(num % 2 == 1) {// 홀수인 경우
 				num = (num*3) + 1;
 			}
-			count++;
+			++count;
 		}
-		if(count == 500) {
-			answer = -1;
+		if(count < 500) {
+			answer = count;
 		}
 		else {
-			answer = count;
+			answer = -1;
 		}
 		
 		return answer;
