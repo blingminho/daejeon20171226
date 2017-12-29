@@ -1,5 +1,9 @@
 package basic_1228;
-
+/**
+ * 연산자 기본 : 항목 및 우선순위
+ * @author SangJun
+ *
+ */
 public class OperationBasic {
 	public static void main(String[] args) {
 		
@@ -18,20 +22,6 @@ public class OperationBasic {
 		 * - 산술 > 비교 > 논리 > 대입
 		 * - 단항 > 이항 > 삼항
 		 * - 단항 연산자와 대입 연산자를 제외한 모든 연산자의 진행방향은 왼쪽에서 오른쪽이다.
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 */
-		
+		 */	
 	}
 }
