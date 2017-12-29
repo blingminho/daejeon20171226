@@ -1,5 +1,9 @@
 package exam;
-
+/**
+ * Java의 정석 2장 변수 연습문제
+ * @author SangJun
+ *
+ */
 public class Exam_02 {
 	public static void main(String[] args) {
 		/*
