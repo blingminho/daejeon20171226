@@ -24,9 +24,9 @@ public class Exam_02 {
 			long l =100L;
 			final float PI = 3.14f;
 			- 리터럴 : 100, 100L, 3.14f --> 리터럴이란 값 자체를 의미한다.
-			- 변수 : int i, long l --> 변수는 변경된 값을 언제든지 받을 수 있는 변수이다.
+			- 변수 : i, l --> 변수는 변경된 값을 언제든지 받을 수 있는 변수이다.
 			- 키워드 : int, long, final, float --> 키워드는 예약어를 뜻하며 내가 변수 이름으로 사용할 수 없는 것들이다.
-			- 상수 : final float PI --> final이 들어감으로써 변수가 아닌 상수이다.
+			- 상수 : PI --> final이 들어감으로써 변수가 아닌 상수이다.
 		 */
 		int i = 100;
 		long l =100L;
@@ -34,7 +34,7 @@ public class Exam_02 {
 		
 		/*
 		 	2-4
-		 	답 : b(Byte) --> byte(기본형의 정수형)가 올바른 표기이다.
+		 	답 : b(Byte : 참조형 이다) --> byte(기본형의 정수형)가 올바른 표기이다.
 		 	
 		 	int : 기본형의 정수형
 		 	double : 기본형의 실수형
@@ -51,6 +51,7 @@ public class Exam_02 {
 			System.out.println('J' + “ava”) -> ( Java ) : String이 제일 크기때문에 String으로 계산된다
 			System.out.println(true + null) -> ( 컴파일 오류 ) : 기본형과 참조형간의 연산은 불가하다. 
 		 */
+		//null은 참조형의 주소가 없다는 뜻이다
 		System.out.println("1" + "2");
 		System.out.println(true + "");
 		System.out.println('A' + 'B');
