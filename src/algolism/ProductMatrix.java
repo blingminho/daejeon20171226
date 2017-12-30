@@ -1,6 +1,6 @@
 package algolism;
 /**
- * 프로그래머스 레벨2 행렬의 곱셈
+ * 프로그래머스 레벨2 행렬의 곱셈 - 포기!
  * @author SangJun
  *
  */
@@ -17,17 +17,32 @@ class ProductMatrix {
 		
 		int aRowLen = A.length;
 		int bRowLen = B.length;
-		int aColLen = bRowLen;
-		int bColLen = aRowLen;
+		int aColLen = A[aRowLen-1].length;
+		int bColLen = B[bRowLen-1].length;
+		System.out.println("   	행  열");
+		System.out.println("A : 	" + aRowLen +" * "+ aColLen );
+		System.out.println("B : 	" + bRowLen +" * "+ bColLen );
+		System.out.println("answer : " + aRowLen +" * " + bColLen);
 		
-		answer = new int[aRowLen][aRowLen];
+		answer = new int[aRowLen][bColLen];
 		
-		for(int i=0; i<aRowLen-1; i++) {
-			for(int j=0; j<aColLen-1; j++) {
-				answer[i][i] += A[i][j]*B[j][i];
+/*		
+ 		answer[aRowLen][bColLen]
+		aRowLen;
+		bColLen;
+*/		
+		int aR=0;
+		int bC=0;
+		for(int i=0; i < aRowLen; i++) {
+			for(int j=0; j < bRowLen; j++) {
+				if(bColLen==1)
+					answer[aR][bC] += A[i][j]*B[j][0];
+				else
+					answer[aR][bC] += A[i][j]*B[j][i];
+				
 			}
+			aR++;
 		}
-		
 		
 		
 		
@@ -37,8 +52,11 @@ class ProductMatrix {
 
 	public static void main(String[] args) {
 		ProductMatrix c = new ProductMatrix();
+		//int[][] a = { { 1, 2 }, { 2, 3 } };
+		//int[][] b = { { 3, 4 }, { 5, 6 } };
+		
 		int[][] a = { { 1, 2 }, { 2, 3 } };
-		int[][] b = { { 3, 4 }, { 5, 6 } };
+		int[][] b = { { 3 }, { 5 } };
 		
 		/*
 		 * 1 2
