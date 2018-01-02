@@ -166,13 +166,35 @@ public class Exam_03 {
 			System.out.println("Fahrenheit:"+fahrenheit);
 			System.out.println("Celcius:"+celcius);
 			
-			정답 : 
-			풀이 : 
+			정답 : (int)(5f/9 * (fahrenheit - 32) * 100 + 0.5) / 100f
+			풀이 : 변환공식이 C = 5/9 ×(F - 32) 이므로 그에 맞게 식을 세운다
+					여기서 중요한것은 int형으로 이루어진 식이므로
+					float형인 C에게 값을 float형으로 주기위해서 어느 하나라도 float형 리터럴이 있어야 한다.
+					그래서 5를 5f로 바꿈으로써 계산 결과가 float형으로 반환된다. (5f/9 * (fahrenheit - 32))
+		 			그래서 37.77778가 나오게 된다.
+		 			이 결과의 소수점 셋째자리에서 반올림을 해야한다.
+		 			그러므로 먼저 100을 곱하여 3777.778 이 되게하여 소수점 두자리였던 숫자가 소수점 위로 올라오게한다. (* 100)
+		 			그 후 반올림을 위하여 0.5를 더한다. (+ 0.5)
+		 			그러면 3778.278 이라는 결과가 나오게 되는데
+		 			여기서 소수점 아래를 버리기 위해 int형으로 형변환 시켜준다. ((int)결과)
+		 			그 결과 3778이 남게된다. (3778)
+		 			/100f 을 하여 소수점이하도 나오게 한다. (37.78)
+		 			
+		 			이 식들을 위에서부터 정리해보면
+		 			5/9 * (fahrenheit - 32)
+		 			5f/9 * (fahrenheit - 32)
+		 			5f/9 * (fahrenheit - 32) * 100
+		 			5f/9 * (fahrenheit - 32) * 100 + 0.5
+		 			(int)(5f/9 * (fahrenheit - 32) * 100 + 0.5)
+		 			(int)(5f/9 * (fahrenheit - 32) * 100 + 0.5) / 100f
+		 
 		 */
 		int fahrenheit = 100; 
-		float celcius = 5f / 9 * ( fahrenheit - 32) ;
+		float celcius = (int)(5f/9 * (fahrenheit - 32) * 100 + 0.5) / 100f ;
+		float celcius2 = 5f / 9 * (fahrenheit - 32) ;
 		System.out.println("Fahrenheit:"+fahrenheit);
 		System.out.println("Celcius:"+celcius);
+		System.out.println("Celcius2:"+celcius2);
 		
 		/*
 			3-8
