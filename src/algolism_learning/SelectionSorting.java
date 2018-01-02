@@ -29,15 +29,14 @@ public class SelectionSorting {
 		
 		//오름차순 (1, 2, 3, 4, 5)
 		for(int i = 0; i < inputLength - 1; i++){
-			minTmp = input[i];
 			minKey = i;
 			for(int j = i + 1; j < inputLength; j++){
-				if(minTmp >= input[j]){
-					minTmp = input[j];
+				if(input[minKey] >= input[j]){
 					minKey = j;
 				}
 				++count;
 			}
+			minTmp = input[minKey];
 			input[minKey] = input[i];
 			input[i] = minTmp;
 		}
@@ -50,15 +49,14 @@ public class SelectionSorting {
 		count = 0;
 		//내림차순 (5, 4, 3, 2, 1)
 		for(int i = 0; i < inputLength; i++){
-			maxTmp = input[i];
 			maxKey = i;
 			for(int j = i + 1; j < inputLength; j++){
-				if(maxTmp <= input[j]){
-					maxTmp = input[j];
+				if(input[maxKey] <= input[j]){
 					maxKey = j;
 				}
 				++count;
 			}
+			maxTmp = input[maxKey];
 			input[maxKey] = input[i];
 			input[i] = maxTmp;
 		}
