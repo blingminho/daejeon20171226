@@ -88,7 +88,7 @@ public class Exam_03 {
 			int numOfBucket = ( (1) ); // 모든 사과를 담는데 필요한 바구니의 수
 			System.out.println("필요한 바구니의 수 :"+numOfBucket);
 			
-			정답 : (numOfApples / sizeOfBucket) + (numOfApples % sizeOfBucket > 0 ? 1 : 0)
+			정답 : (numOfApples / sizeOfBucket) + ( (numOfApples % sizeOfBucket) > 0 ? 1 : 0)
 			풀이 : 123 인경우 12 + 1 개가 나와야하고
 					120 인경우 12 개가 나와야 한다.
 					바구니의 크기로 나누어 12를 구하고
@@ -98,7 +98,7 @@ public class Exam_03 {
 		 */
 		int numOfApples = 123; // 사과의 개수
 		int sizeOfBucket = 10; // 바구니의 크기(바구니에 담을 수 있는 사과의 개수)
-		int numOfBucket = ( (numOfApples / sizeOfBucket) + (numOfApples % sizeOfBucket > 0 ? 1 : 0) ); // 모든 사과를 담는데 필요한 바구니의 수
+		int numOfBucket = ( (numOfApples / sizeOfBucket) + ( (numOfApples % sizeOfBucket) > 0 ? 1 : 0) ); // 모든 사과를 담는데 필요한 바구니의 수
 		System.out.println("필요한 바구니의 수 :"+numOfBucket);
 		
 		/*
