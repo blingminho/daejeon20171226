@@ -88,17 +88,17 @@ public class Exam_03 {
 			int numOfBucket = ( (1) ); // 모든 사과를 담는데 필요한 바구니의 수
 			System.out.println("필요한 바구니의 수 :"+numOfBucket);
 			
-			정답 : (numOfApples / sizeOfBucket) + ( (numOfApples % sizeOfBucket) > 0 ? 1 : 0)
+			정답 : (numOfApples / sizeOfBucket) + ( (numOfApples % sizeOfBucket) != 0 ? 1 : 0)
 			풀이 : 123 인경우 12 + 1 개가 나와야하고
 					120 인경우 12 개가 나와야 한다.
 					바구니의 크기로 나누어 12를 구하고
-					바구니의 크기로 나누고 남은 나머지가 하나라도 있을 경우 바구니 1을 더한다.
+					바구니의 크기로 나누고 남은 나머지가 있을 경우( numOfApples % sizeOfBucket != 0 ) 바구니 1을 더한다.
 					만약 나머지가 없다면 추가하지 않아도 되기 때문에 0을 더한다
 					조건이 true 인경우 +1, false 인경우 +0이므로 결과가 무조건 두개중 하나가 나올수 있는 삼항 연산자를 이용한다.
 		 */
 		int numOfApples = 123; // 사과의 개수
 		int sizeOfBucket = 10; // 바구니의 크기(바구니에 담을 수 있는 사과의 개수)
-		int numOfBucket = ( (numOfApples / sizeOfBucket) + ( (numOfApples % sizeOfBucket) > 0 ? 1 : 0) ); // 모든 사과를 담는데 필요한 바구니의 수
+		int numOfBucket = ( (numOfApples / sizeOfBucket) + ( (numOfApples % sizeOfBucket) != 0 ? 1 : 0) ); // 모든 사과를 담는데 필요한 바구니의 수
 		System.out.println("필요한 바구니의 수 :"+numOfBucket);
 		
 		/*
@@ -122,10 +122,14 @@ public class Exam_03 {
 			int num4 = 456;
 			System.out.println( (1) );
 			
-			정답 : num4 - num4%100
-			풀이 : 100미만의 자릿수를 버리는 방법은
+			정답 1 : num4 - num4%100
+			정답 2 : num4 / 100 * 100
+			풀이 1 : 100미만의 자릿수를 버리는 방법은
 					해당 수를 100으로 나누고 남은 나머지를
 					해당 수에서 빼는 것이다.
+			풀이 2 : 100미만의 자릿수를 내림하는 방법은
+					해당수를 100으로 나누고 (num4 / 100) == 4
+					나뉜 수에 다시 100을 곱한다 (num4 / 100 * 100) == 4 * 100 == 400
 		 */
 		int num4 = 456;
 		System.out.println( num4 - num4%100 );
@@ -136,11 +140,13 @@ public class Exam_03 {
 			int num5 = 333;
 			System.out.println( (1) );
 			
-			정답 : num5 - num5%10 + 1
-			풀이 : 1의 자릿수를 버리고 1을 더하면 
+			정답 1 : num5 - num5%10 + 1
+			정답 2 : num5 / 10 * 10 + 1
+			풀이 1 : 1의 자릿수를 버리고 1을 더하면 
 					모든 수의 1의 자리는 1이 될 수 있다.
 					1의 자릿수를 버리는 방법은 10으로 나눈 나머지를
 					해당 수에서 빼는 것이다.
+			풀이 2 : 3-4와 동일
 		 */
 		int num5 = 333;
 		System.out.println( num5 - num5%10 + 1 );
@@ -166,7 +172,7 @@ public class Exam_03 {
 			System.out.println("Fahrenheit:"+fahrenheit);
 			System.out.println("Celcius:"+celcius);
 			
-			정답 : (int)(5f/9 * (fahrenheit - 32) * 100 + 0.5) / 100f
+			정답 : (int)((float)5/9 * (fahrenheit - 32) * 100 + 0.5) / 100f
 			풀이 : 변환공식이 C = 5/9 ×(F - 32) 이므로 그에 맞게 식을 세운다
 					여기서 중요한것은 int형으로 이루어진 식이므로
 					float형인 C에게 값을 float형으로 주기위해서 어느 하나라도 float형 리터럴이 있어야 한다.
@@ -247,8 +253,8 @@ public class Exam_03 {
 		byte c1 = (byte)(a + b);
 		char ch = 'A';
 		ch = (char)(ch + 2);
-		float f = 3 / 2f;
-		long l = 3000 * 3000 * 3000L;
+		float f = (float)3 / 2;
+		long l = (long)3000 * 3000 * 3000;// 앞에다가 long을 붙힘으로써 혹시 있을 오버플로우를 미연에 방지한다!
 		float f2 = 0.1f;
 		double d = 0.1;
 		boolean result = (float)d==f2;
