@@ -1,6 +1,6 @@
 package exam;
 /**
- * 
+ * 자바의 정석 4장 연습문제 풀이완료
  * @author SangJun
  *
  */
