@@ -1,8 +1,12 @@
 package basic_1302;
+
+import java.util.Scanner;
+
 /**
  * 조건문 (if, switch)
  * if, else if, else
  * switch
+ * Scanner
  * @author SangJun
  *
  */
@@ -207,6 +211,7 @@ public class ConditionalSentence01 {
 		System.out.println("---- 숙제 ----");
 		// 1. 위에서 만든 성적에 따른 학점주는 소스르 switch문으로 만들어 오세요
 		switch(score/10) {
+			case 10:
 			case 9 :
 				System.out.println("A");
 				break;
@@ -223,6 +228,17 @@ public class ConditionalSentence01 {
 				System.out.println("나가");
 		}
 		
+		
+		// Scanner 참조형
+		Scanner sc = new Scanner(System.in);
+		System.out.println("입력하세요");
+		String result = sc.next();
+		System.out.println(result);
+		
+		System.out.println("숫자를 입력하세요");
+		int result2 = sc.nextInt();
+		
+		System.out.println(result2);
 		
 	}
 }
