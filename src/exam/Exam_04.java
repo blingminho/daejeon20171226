@@ -530,8 +530,11 @@ public class Exam_04 {
 		int m = 0;
 		for(int i = 0 ; i < 3 ; i++) {
 			for(int j = 1 ; j <= 3 ; j++) {
-				for(int k = 2 + m ; k <= 4 + m - ( m == 6  ? 1 : 0); ++k) {
+				for(int k = 2 + m ; k <= 4 + m; ++k) {
 					System.out.print(k + "*" + j + "=" + k*j + "\t");
+					if(k==9) {
+						break;
+					}
 				}
 				System.out.println("");
 			}
