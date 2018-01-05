@@ -1,7 +1,12 @@
 package basic_1304;
+
+import java.util.Scanner;
+
 /**
  * 반복문
  * for, while, do-while
+ * continue, break
+ * Scanner
  * @author SangJun
  *
  */
@@ -165,6 +170,7 @@ public class RepeatSentence {
 		
 		// 3. 짝수단의 홀수곱만 출력하게 만드세요(for문)
 		for(int j = 2; j < 10 ; j++) {
+			
 			if( j % 2 == 0 ) {
 				for(int k = 1 ; k < 10 ; k++) {
 					if( k % 2 == 1) {
@@ -174,6 +180,103 @@ public class RepeatSentence {
 				System.out.println();
 			}
 		}
+		
+		
+		// 1. 1 ~ ? 의 합이 사용자가 입력한 값보다 커지는 ?의 값은 얼마일까요?
+		Scanner scan = new Scanner(System.in);
+		System.out.println("숫자를 입력하세요.");
+		int input = scan.nextInt();
+		
+		// while문
+		/*
+		int i1 = 0;
+		int sum1 = 0;
+		while(input > sum1) {
+			i1++;
+			sum1 += i1;
+		}
+		System.out.println("1 부터 "+ i1 + " 까지의 합이 입력한 수보다 큽니다 : " + sum1);
+		*/
+		
+		// for문
+		int sum1 = 0;
+		int i1 = 1;
+		for( ; input > sum1 ; ) {
+			i1++;
+			sum1 += i1;
+		}
+		System.out.println("1 부터 "+ i1 + " 까지의 합이 입력한 수보다 큽니다 : " + sum1);
+
+		/*
+		int i1 = 1;
+		int sum1 = 0;
+		while(true) {
+			sum1 += i1;
+			if(sum1 > input) {
+				System.out.println("1 부터 "+ i1 + " 까지의 합이 입력한 수보다 큽니다 : " + sum1);
+				break;
+			}
+			i1++;
+		}
+		*/
+		
+		
+		/*
+		 * 4. do-while
+		 * - while문의 변형으로 기본구조는 while문과 같으나 
+		 * 	 블럭{}을 먼저 수행하고 조건식을 판단한다.
+		 * - 기본구조
+		 * 	 do{
+		 * 		수행될 문장
+		 * 	 } while(조건식);
+		 */
+		Scanner scan2 = new Scanner(System.in);
+		String input2;
+		do{
+			System.out.println("문장을 입력해 주세요");
+			input2 = scan2.next();			
+			System.out.println(input2);
+		} while(!(input2.equals("0")));
+		
+		/*
+		 * 5. continue
+		 * - 반복문에서만 사용할 수 있다.
+		 * - 반복문의 끝으로 이동하여 다음 반복문으로 넘어간다.
+		 * - for문의 경우 증감식으로, while문의 경우는 조건식으로 간다.
+		 */
+		
+		for( int k = 0; k < 10; k++){
+			if( k % 2 == 0){
+				continue;
+			}
+			System.out.println(k);
+		}
+		
+		/*
+		 * 6. break
+		 * - switch문, 반복문에서 사용가능하다
+		 * - 자신이 포함된 가장 가까운 반복문을 나간다.
+		 * - if문안에 있는 break문의 경우 if문이 포함된 가장 가까운 반복문을 나간다.
+		 */
+		System.out.println("====break====");
+		int l = 0;
+		while(l < 5){
+			int k = 0;
+			System.out.println("l : "+ l );
+			while(k < 5){
+				if( l == 3 ){// k반복문 나감
+					break;
+				}
+				System.out.println("k : "+ k );
+				k++;
+			}
+			
+			l++;
+		}
+		
+		
+		
+		
 		
 		
 		
