@@ -72,7 +72,7 @@ public class Exam_04 {
 		}
 		
 		
-		/* 4-2
+		/* 4-2 합과 식 다 출력
 		1부터 20까지의 정수 중에서 2 또는 3의 배수가 아닌 수의 총합을 구하시오.
 		
 		풀이 : 총합을 받아줄 변수 result2 선언 및 0으로 초기화
@@ -132,24 +132,33 @@ public class Exam_04 {
 		*/
 		int result3 = 0;
 		for(int i = 1 ; i <= 10 ; i++) {
+			System.out.print("(");
 			for(int j = 1; j <= i; j++) {
 				result3 += j;
+				System.out.print(j);
+				if(i!=1 && j!=i){
+					System.out.print("+");
+				}
+			}
+			if(i==10){
+				System.out.println(") = " + result3);
+			}
+			else{
+				System.out.print(") + ");
 			}
 		}
-		System.out.println("result3 : " + result3);
 		
 		/*
-		풀이2 : 반복문 하나로 풀이
+		풀이2-1 : 반복문 하나로 풀이
 		(1 + 2 + 3 + ... + 10) == 10*11/2 == 55
 		1 + 2 + ... + n == n * (n+1) / 2
 		1 = 1 * (1+1)/2 == 1
 		1 + 2 = 2 * (2+1)/2 == 3
 		
-		정답2 :
+		정답2-1 :
 		for(int i = 1 ; i <= 10 ; i++) {
 			result3 += i * (i+1) / 2;
 		}
-		
 		*/
 		result3 = 0;
 		for(int i = 1 ; i <= 10 ; i++) {
@@ -157,6 +166,58 @@ public class Exam_04 {
 		}
 		System.out.println("result3 : " + result3);
 		
+		/*
+		풀이2-2 : 반복문 하나로 풀이 식도 나오게함
+		괄호안에 들어가는 식을 temp라는 문자열로 받아줌
+		모든 식을 계속해서 더해주는 sumStr 문자열 선언
+		괄호안에 들어가는 식의 합을 받아주는 tempInt 선언
+		괄호끼리의 합을 더해가는 sumInt 선언
+		
+		조건문을 이용하여
+		1일때는 괄호 없음
+		10일때는 괄호닫고 "+"가 아닌 "="과 식의 결과값(sumInt) 추가
+		
+		
+		정답2-1 :
+		String sumStr = "";
+		String temp = "";
+		int sumInt=0;
+		int tempInt=0;
+		for(int i = 1 ; i < 11 ; i++){
+			tempInt += i;
+			sumInt += tempInt;
+			if(i==1){
+				temp += i;
+				sumStr += temp + "+";
+			}else if(i==10){
+				temp += "+" + i;
+				sumStr += "(" + temp + ")=" + sumInt;
+			}else{
+				temp += "+" + i;
+				sumStr += "(" + temp + ")+";
+			}
+		}
+		System.out.println(sumStr);
+		*/
+		String sumStr = "";
+		String temp = "";
+		int sumInt=0;
+		int tempInt=0;
+		for(int i = 1 ; i < 11 ; i++){
+			tempInt += i;
+			sumInt += tempInt;
+			if(i==1){
+				temp += i;
+				sumStr += temp + "+";
+			}else if(i==10){
+				temp += "+" + i;
+				sumStr += "(" + temp + ")=" + sumInt;
+			}else{
+				temp += "+" + i;
+				sumStr += "(" + temp + ")+";
+			}
+		}
+		System.out.println(sumStr);
 		
 		/* 4-4
 		1+(-2)+3+(-4)+... 과 같은 식으로 계속 더해나갔을 때, 몇까지 더해야 총합이
@@ -270,8 +331,8 @@ public class Exam_04 {
 				countJ++;
 			}
 			System.out.println();
-			countI++;
 			countJ = 0;
+			countI++;
 		}
 		
 		
@@ -512,14 +573,25 @@ public class Exam_04 {
 		8*3=24 9*3=27
 		
 		풀이 : 
-		왼쪽의 수를 i, 오른쪽의 수를 j로 생각해본다.
-		이 경우 i의 범위는 2 ~ 9 까지의 정수이다. -> for(int i = 2 ; i <= 9 ; i++) { }
+		왼쪽의 수를 k, 오른쪽의 수를 j로 생각해본다.
+		이 경우 k의 범위는 2,3,4 // 5,6,7 // 8,9 까지의 정수이다. -> for(int k = 2 + m ; k <= 4 + m; k++) { }
 		이 경우 j의 범위는 1 ~ 3 까지의 정수이다. -> for(int j = 1 ; j <= 3 ; j++) { }
-		i는 가로로 1씩 증가한다. j는 세로로 1씩 증가한다. -> 그러므로 바깥 반복문은 j를 쓰는 반복문이 된다.
-		그리고 2, 3, 4 단이 끝난후 그리고 5, 6, 7 단이 끝나후 줄내림이 있다. -> \n
-		2 단과 3단 그리고 4단 사이에는 공백이 있다 -> \t
+		k는 가로로 1씩 증가한다. j는 세로로 1씩 증가한다. -> 그러므로 바깥 반복문은 j를 쓰는 반복문이 된다., j반복문보다 안쪽반복문은 k반복문이 된다.
+		그리고 2, 3, 4 단이 끝난후 줄내림, 5, 6, 7 단이 끝난후 줄내림이 있다. -> \n
+		2 단과 3단 그리고 4단 사이에는 일정한 간격의 공백이 있다 -> \t
 		
+		겉으로 봤을때 규칙은
+		2,3,4 단은 k반복문에 의하여 생긴다
+		줄내림
+		또한 5,6,7 단도 k반복문에 의하여 생긴다
+		줄내림
+		그리고 8,9 단도 k반복문에 의하여 생긴다
 		
+		그러므로 반복문을 제일 바깥에 하나 더 설정하여 k반복문의 k 조건을 바꾸어준다.
+		제일 바깥 반복문은 변수 i를 이용한다.
+		k반복문 + 줄내림 을 i반복문의 수행문으로 생각한다. 총 3번 진행된다 -> for( int i = 0 ; i < 3 ; i++ ) { }
+		변수 m에 의해 k의 초기값과 최대값을 유동적으로 변경한다. -> for(int k = 2 + m ; k <= 4 + m ; k++) { }
+		m은 j반복문이 끝났을때 3씩 증가시킨다.
 		
 		
 		정답 : 
@@ -530,7 +602,7 @@ public class Exam_04 {
 		int m = 0;
 		for(int i = 0 ; i < 3 ; i++) {
 			for(int j = 1 ; j <= 3 ; j++) {
-				for(int k = 2 + m ; k <= 4 + m; ++k) {
+				for(int k = 2 + m ; k <= 4 + m; k++) {
 					System.out.print(k + "*" + j + "=" + k*j + "\t");
 					if(k==9) {
 						break;
@@ -705,7 +777,7 @@ public class Exam_04 {
 		
 		
 		
-		/* 4-15
+		/* 4-15 문자도 가능하게!
 		
 		class Exercise4_15{
 			public static void main(String[] args){
@@ -762,10 +834,56 @@ public class Exam_04 {
 			result = result * 10 + tmp % 10;
 			tmp /= 10;
 		}
-		if(number == result)
-			System.out.println( number + "는 회문수 입니다.");
-		else
-			System.out.println( number + "는 회문수가 아닙니다.");
+		if(number == result){
+			System.out.println( number + "는 회문수 입니다.");			
+		}
+		else{
+			System.out.println( number + "는 회문수가 아닙니다.");			
+		}
+		
+		// 4-15 문자회문
+		/*
+		풀이 : 
+		문자열을 반으로 나누어 왼쪽과 오른쪽을 비교한다 => for문의 끝나는 조건을 문자열 길이의 절반만큼만 반복
+		반복문을 이용하여 charAt(i)를 사용한다 => 횟수를 알고 있으므로 for문
+		왼쪽의 첫글자와 오른쪽의 끝글자를 비교한다
+		index를 증가시켜 왼쪽의 두번째글자와 오른쪽의 끝에서 두번째 글자를 비교한다
+		inputs.charAt(i) != inputs.charAt(length -i -1)		
+		조건문을 이용하여 하나라도 같지않을경우 boolean형 key를 false로 변경후 break;
+		key가 false일경우 "회문수가 아닙니다"를 출력
+		key가 true일경우 "회문수가 맞습니다"를 출력
+		
+		정답 :
+		String inputs = "abca";
+		int tmpLength = inputs.length();
+		boolean key = true;
+		for(int i = 0; i < tmpLength/2 ; i++){
+			if(inputs.charAt(i) != inputs.charAt(tmpLength-i-1)){
+				key = false;
+				break;
+			}
+		}
+		if(key==true){
+			System.out.println(inputs + "는 회문수가 맞습니다.");	
+		}else{
+			System.out.println(inputs + "는 회문수가 아닙니다.");	
+		}
+		 */
+		String inputs = "abca";
+		int tmpLength = inputs.length();
+		boolean key = true;
+		for(int i = 0; i < tmpLength/2 ; i++){
+			if(inputs.charAt(i) != inputs.charAt(tmpLength-i-1)){
+				key = false;
+				break;
+			}
+		}
+		if(key==true){
+			System.out.println(inputs + "는 회문수가 맞습니다.");	
+		}else{
+			System.out.println(inputs + "는 회문수가 아닙니다.");	
+		}
+		
 		
 	}
 }
