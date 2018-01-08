@@ -61,7 +61,38 @@ public class ArrayBasic {
 		score[2] = 30;
 		score[3] = 40;
 		
+		for(int i = 0 ; i < score.length ; i++){
+			System.out.println(score[i]);
+		}
 		
+		// 1. 숫자 7개를 저장할 수 있는 배열을 선언 및 초기화 하세요
+		int[] scoreArray = new int[7];
+		// 2. 각방의 값을 0 ~ 100사이의 랜덤한 값을 지정해주세요.(반복문 없이)
+//		scoreArray[0] = (int)(Math.random()*101);
+//		scoreArray[1] = (int)(Math.random()*101);
+//		scoreArray[2] = (int)(Math.random()*101);
+//		scoreArray[3] = (int)(Math.random()*101);
+//		scoreArray[4] = (int)(Math.random()*101);
+//		scoreArray[5] = (int)(Math.random()*101);
+//		scoreArray[6] = (int)(Math.random()*101);
+		for(int i = 0 ; i < scoreArray.length; i++){
+			scoreArray[i] = (int)(Math.random()*101);
+		}
+		
+		for(int i = 0 ; i < scoreArray.length; i++){
+			System.out.println(scoreArray[i]);
+		}
+		
+		int sum = 0;
+		for(int i = 0 ; i < scoreArray.length; i++){
+			sum += scoreArray[i];
+		}
+		System.out.println(sum);
+		
+		System.out.println((float)sum/scoreArray.length);
+		System.out.println( ( (float)sum/scoreArray.length * 100 + 0.5 ));
+		System.out.println( (int)((float)sum/scoreArray.length * 100 + 0.5));
+		System.out.println( (int)((float)sum/scoreArray.length * 100 + 0.5) / (float)100);
 		
 		
 		
