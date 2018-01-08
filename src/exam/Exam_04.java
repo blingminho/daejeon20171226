@@ -205,7 +205,7 @@ public class Exam_04 {
 		int tempInt=0;
 		for(int i = 1 ; i < 11 ; i++){
 			tempInt += i;
-			sumInt += tempInt;
+			sumInt += tempInt;		
 			if(i==1){
 				temp += i;
 				sumStr += temp + "+";
@@ -218,6 +218,37 @@ public class Exam_04 {
 			}
 		}
 		System.out.println(sumStr);
+		
+		// 풀이3
+		int sum = 0;
+		int total = 0;
+		String sumS = "";
+		String totalS = "";
+		for (int i = 1; i < 11; i++) {	
+			if(i!=1){
+				totalS += "(";
+			}
+			for (int j = 1; j < i + 1; j++) {
+				sum += j;
+				if(j==1){
+					sumS += j;	
+				}else{
+					sumS = sumS + "+" + j;
+				}
+			}
+			totalS += sumS;
+			if(i!=1 && i!=10){
+				totalS += ")+";
+			} else if(i==10){
+				totalS += ")=";
+			} else if(i==1){
+				totalS += "+";
+			}
+			sumS = "";
+			total += sum;
+			sum = 0;
+		}
+		System.out.println(totalS + total);
 		
 		/* 4-4
 		1+(-2)+3+(-4)+... 과 같은 식으로 계속 더해나갔을 때, 몇까지 더해야 총합이
@@ -283,6 +314,15 @@ public class Exam_04 {
 		}
 		System.out.println("4-4 count1 : " + count1);
 		
+		// 풀이3 구분자를 사용
+		int gubun = 1;// 1 or -1
+		result4 = 0;
+		count1 = 1;
+		while(result4 < 100){
+			result4 += count1*gubun;
+			count1++; 
+			gubun *= -1;
+		}
 		
 		/* 4-5 다음의 for문을 while문으로 변경하시오.
 		public class Exercise4_5 {
@@ -458,16 +498,16 @@ public class Exam_04 {
 		그리고 char형인 '1'을 int형 1로 바꾸기 위해 int로 강제적형변환을 시킨다.
 		여기서 주의할 점은 '1'을 int형으로 바꿀경우 49가 반환될 것이다.
 		그러므로 '0'을 빼줌으로써 '1'을 실제 1로 바뀐다.
-		마지막으로 최종계산값에 int로 강제적 형변환을 시켜 sum에 계속해서 더해준다.
+		마지막으로 최종계산값에 sum에 계속해서 더해준다.
 		
 		정답 :
 		sum += (int)(str1.charAt(i)-'0');
 		
 		*/
 		String str1 = "12345";
-		int sum = 0;
+		sum = 0;
 		for(int i=0; i < str1.length(); i++) {
-			sum += (int)(str1.charAt(i)-'0');
+			sum += str1.charAt(i)-'0';// char끼리의 연산을 통해 int형으로 바뀌고 연산됨 -> 결과도 int형으로 나온다
 		}
 		System.out.println("sum="+sum);
 		
@@ -646,7 +686,7 @@ public class Exam_04 {
 		i < value.length()와 i++를 사용함으로써 문자열의 마지막 글자까지 고를 수 있다.
 		
 		i번째에 해당하는 글자를 가져와서 조건문을 통해 하나라도 숫자가 아닐경우 -> if(!숫자인경우)
-		isNumber = false; 로 초기화 한다.
+		isNumber = false; 로 초기화 한다. 그 후 반복문을 나간다.(반복할 필요가 없기 때문에)
 		
 		if(!숫자인경우) -> if(!('0' <= value.charAt(i) <= '9'))
 		-> if(!('0' <= value.charAt(i) && value.charAt(i) <= '9')) { isNumber = false; }
@@ -666,6 +706,7 @@ public class Exam_04 {
 		for(int i=0; i < value1.length() ;i++) {
 			if(!('0'<= value1.charAt(i) && value1.charAt(i) <= '9')) {
 				isNumber = false;
+				break;
 			}
 		}
 		if (isNumber) {
