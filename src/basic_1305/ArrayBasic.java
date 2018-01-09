@@ -1,6 +1,8 @@
 package basic_1305;
 /**
  * 배열
+ * 변수타입[] 변수명 = new 변수타입[];
+ * 최대값, 최소값 뽑기
  * @author SangJun
  *
  */
@@ -95,8 +97,24 @@ public class ArrayBasic {
 		System.out.println( (int)((float)sum/scoreArray.length * 100 + 0.5) / (float)100);
 		
 		
+		// 최대값 뽑기 // 배열의 첫번째 값이 시작 비교 기준
+		int maxScore = scoreArray[0];
+		for(int i = 1 ; i < scoreArray.length; i++){
+			if(maxScore < scoreArray[i]){
+				maxScore = scoreArray[i];
+			}
+		}
+		System.out.println(maxScore);
 		
-		
+		// 최소값 뽑기 // 배열의 첫번째 값이 시작 비교 기준 : 만약 minScore를 101로 할 경우 점수의 범위가 바뀌는 경우 사용할 수 없게 된다.
+		// 모든 배열에서 사용할 수 있도록 시작 비교 기준을 배열의 첫번째 값으로 지정한다.
+		int minScore = scoreArray[0];
+		for(int i = 1; i < scoreArray.length; i++){
+			if(minScore > scoreArray[i]){
+				minScore = scoreArray[i];
+			}
+		}
+		System.out.println(minScore);
 		
 	}
 }
