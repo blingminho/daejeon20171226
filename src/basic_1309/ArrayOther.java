@@ -7,6 +7,7 @@ import java.util.Arrays;
  * 1. 6행 7열(6명 7과목)형태의 이차원 배열을 선언 및 초기화하세요 score2
  * 2. score2 변수 각 방의 값을 0 ~ 100사이의 랜덤한 값을 저장해주세요
  * 3. 아래와 같이 출력하세요
+ * 4. 정렬해서 출력하세요
  * @author SangJun
  *
  */
@@ -159,13 +160,77 @@ public class ArrayOther {
 		}
 		
 		
+		// 정렬
+		// 합계 정렬 - 선택정렬 - 내림차순
+		for(int i = 0; i < name.length-1; i++){
+			int tmp;
+			int maxIndex = i;
+			for(int j = i; j < name.length; j++){
+				if(sum[j] > sum[maxIndex]){
+					maxIndex = j;
+				}
+			}
+			
+			// 합계
+			tmp = sum[maxIndex];
+			sum[maxIndex] = sum[i];
+			sum[i] = tmp;
+			
+			// 평균
+			float tmpF = average[maxIndex];
+			average[maxIndex] = average[i];
+			average[i] = tmpF;
+			
+			// 석차
+			tmp = rank[maxIndex];
+			rank[maxIndex] = rank[i];
+			rank[i] = tmp;
+			
+			// 이름
+			String tmpS;
+			tmpS = name[maxIndex];
+			name[maxIndex] = name[i];
+			name[i] = tmpS;
+			
+			// 스코어
+			for(int k = 0; k < subject.length; k++){
+				tmp = score2[maxIndex][k];
+				score2[maxIndex][k] = score2[i][k];
+				score2[i][k] = tmp;
+			}
+			
+		}
 		
 		
-		
-		
-		
-		
-		
-		
+		System.out.println("\n====================================정렬후======================================");
+		// 3. 아래와 같이 출력하세요
+		/*
+		90	50	36	90	30	25	94
+		54	86	83	36	86	58	21
+		...
+		 */
+		for(int j = 0; j < subject.length; j++){
+			System.out.print("\t" + subject[j]);
+		}
+		System.out.print("\t합계\t평균\t석차");
+		for(int i = 0; i < score2.length; i++){
+			System.out.print("\n" + name[i]);// 이름 출력
+			for(int j = 0; j < score2[i].length; j++){
+				System.out.print("\t" + score2[i][j]);// 과목점수 출력
+			}
+			System.out.print("\t" + sum[i]);// 합계 출력
+			System.out.print("\t" + average[i]);// 평균 출력
+			System.out.print("\t" + rank[i]);// 석차 출력
+		}
+		// 과목 합계 출력
+		System.out.print("\n합계");
+		for(int i = 0; i < subject.length; i++){
+			System.out.print("\t"+ sumSub[i]);
+		}
+		// 과목 평균 출력
+		System.out.print("\n평균");
+		for(int i = 0; i < subject.length; i++){
+			System.out.print("\t"+ averageSub[i]);
+		}
 	}
 }
