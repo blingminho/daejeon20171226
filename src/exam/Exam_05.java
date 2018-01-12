@@ -1,5 +1,6 @@
 package exam;
 
+import java.util.Arrays;
 import java.util.Scanner;
 /**
  * 자바의 정석 - 5장 풀이완료
@@ -33,7 +34,21 @@ public class Exam_05 {
 		풀이 :
 		arr[3].length는 3번행의 길이를 구하는 것이다.(0번행부터 시작)
 		*/
+		int[][] arra = new int[4][];
+		arra[0] = new int[5];
+		arra[1] = new int[3];
+		arra[2] = new int[4];
+		arra[3] = new int[2];
 		
+		for(int i = 0; i < arra.length; i++){
+			for(int j = 0; j < arra[i].length; j++){
+				arra[i][j] = 5<<i;
+			}
+		}
+		System.out.println(Arrays.toString(arra[0]));
+		System.out.println(Arrays.toString(arra[1]));
+		System.out.println(Arrays.toString(arra[2]));
+		System.out.println(Arrays.toString(arra[3]));
 		/*
 		5-3
 		정답 :
