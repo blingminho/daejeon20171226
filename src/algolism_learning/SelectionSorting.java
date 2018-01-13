@@ -48,7 +48,7 @@ public class SelectionSorting {
 		
 		count = 0;
 		//내림차순 (5, 4, 3, 2, 1)
-		for(int i = 0; i < inputLength; i++){
+		for(int i = 0; i < inputLength-1; i++){
 			maxKey = i;
 			for(int j = i + 1; j < inputLength; j++){
 				if(input[maxKey] <= input[j]){
