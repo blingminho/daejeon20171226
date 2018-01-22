@@ -8,6 +8,9 @@ import java.util.Scanner;
  */
 public class DiceTest {
 	public static void main(String[] args) {
+		
+		//// 1. 참가관련 메서드
+		// 참가하는 플레이어 수 입력
 		System.out.println("참가하는 플레이어 수를 입력하세요 : ");
 		Scanner scan = new Scanner(System.in);
 		int playerNumber = scan.nextInt();// 참가하는 플레이어 수
@@ -20,6 +23,7 @@ public class DiceTest {
 			playerLog[i] = new String();
 		}
 		
+		
 		// 다이스 번호 결과
 		int result1 = 0;
 		int result2 = 0;
@@ -27,6 +31,8 @@ public class DiceTest {
 		
 		int count = 0;// 던진 횟수 0 -> 3번까지
 		int maxCount = 3;// 연속 던지기 3번 까지 가능 -> 무인도행
+		
+		//// 3. 순서진행 관련 변수
 		int turnCount = 1;// 턴수
 		int playerNum = 0;// player 방번호
 		int winnerNum = 0;// 승자 방번호
