@@ -3,7 +3,6 @@ package basic_1322;
 import java.awt.Color;
 import java.awt.Frame;
 import java.awt.Graphics;
-import java.awt.event.WindowAdapter;
 
 public class DrawShape extends Frame{
 	public static void main(String[] args) {
@@ -32,10 +31,8 @@ public class DrawShape extends Frame{
 		g.drawLine(t.p[0].x, t.p[0].y, t.p[1].x, t.p[1].y);
 		g.drawLine(t.p[2].x, t.p[2].y, t.p[1].x, t.p[1].y);
 		g.drawLine(t.p[0].x, t.p[0].y, t.p[2].x, t.p[2].y);
-		g.drawString("도서관시스템", p0.x, p0.y);
-		
-		
-		
+		//g.drawString("도서관시스템", p0.x, p0.y);
+			
 	}
 	
 	
