@@ -1,4 +1,5 @@
 package basic_1322;
+
 /**
  * 상속 관련 연습
  * super()와 this()는 같이 못씀
