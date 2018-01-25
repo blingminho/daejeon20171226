@@ -13,6 +13,7 @@ public class TimeTest {
 		
 		
 		System.out.println(t.getHour() + " : " + t.getMinute() + " : " + t.getSecond());
+		System.out.println(t);
 	}
 
 }
@@ -66,8 +67,12 @@ class Time{
 		return this.second;
 	}
 	
-	
-	
+	// alt + shift + s + s + enter
+	@Override
+	public String toString() {
+		return "Time [hour=" + hour + ", minute=" + minute + ", second="
+				+ second + "]";
+	}
 	
 	
 	
