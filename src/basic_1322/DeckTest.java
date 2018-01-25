@@ -23,7 +23,7 @@ public class DeckTest {
 }
 class Deck{
 	// 1. 카드 52장을 저장할 수 있는 변수를 선언 및 초기화 하세요(c)
-	Card[] c = new Card[Card.KIND_MAX * Card.NUM_MAX];
+	private Card[] c = new Card[Card.KIND_MAX * Card.NUM_MAX];
 	
 	// 2. 기본생성자를 만드세요
 	// 		기본생성자 내부에 1번에서 만들어진 변수(c)에 52장의 카드를 저장하세요
