@@ -136,38 +136,8 @@ class Card{
 			number = this.number+"";
 		}
 		
-		
-		
 		return kind + " : " + number;
 	}
 	
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
