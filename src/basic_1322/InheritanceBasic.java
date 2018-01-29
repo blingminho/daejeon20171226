@@ -5,6 +5,7 @@ package basic_1322;
  * 단일상속, Object
  * 오버라이드, super., super(), 제어자, 캡슐화
  * 접근제어자, 캡슐화, 생성자의 접근 제어자, 다형성(polymorphism)
+ * instanceof연산자, 매개변수의 다형성, Vector, 추상클래스(abstract class), 인터페이스(interface)
  * @author SangJun
  *
  */
@@ -195,6 +196,11 @@ public class InheritanceBasic {
 	 * 			
 	 * 		- 인터페이스의 다형성
 	 * 			: 인터페이스 타입의 참조변수로 이를 구현한 클래스의 인스턴스를 참조할 수 있다
+	 * 
+	 * 		- 인터페이스의 장점
+	 * 			: 개발시간을 단축시킬수 있다
+	 * 			: 표준화가 가능하다
+	 * 			: 서로 관계없는 클래스들에게 관계를 맺어줄 수 있다
 	 * 
 	 * 
 	 * 
