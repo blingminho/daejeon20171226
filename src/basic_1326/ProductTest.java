@@ -4,6 +4,7 @@ import java.util.Vector;
 
 /**
  * 매개변수의 다형성 연습
+ * 환불 및 영수증리스트 출력 메서드 만듬
  * @author SangJun
  *
  */
@@ -34,10 +35,12 @@ public class ProductTest {
 		Buyer b1 = vBuyer.get(0);
 		b1.buy(c);
 		b1.buy(t);
+		b1.refund(c);
+		b1.refund(t);
+		b1.refund(c);
 		
 		
-		
-		
+		/*
 		for(int i = 0; i < vBuyer.size(); i++){
 			Buyer tmp = vBuyer.get(i);
 			tmp.refund(c);
@@ -48,7 +51,7 @@ public class ProductTest {
 			System.out.println("------------");
 			tmp.summary();
 		}
-		
+		*/
 		
 	}
 }
