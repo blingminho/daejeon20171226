@@ -101,7 +101,7 @@ public class RegEx01 {
 		 */
 		
 		String regEx6 = "^[a-zA-Z](\\w|[-_\\.])*@\\w{1,5}[.][a-zA-Z]{2,3}(.kr){0,1}";
-		System.out.println(Pattern.matches(regEx6, "Tkdjun_-.\67@naver.com.kr"));
+		System.out.println(Pattern.matches(regEx6, "Tkdjun_-.\67@naver.com"));
 		
 		
 		String text = "야이 개나리 십장생아... 이런 조카신발같은 경우를 봤나..";
